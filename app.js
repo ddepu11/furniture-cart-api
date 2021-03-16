@@ -1,4 +1,6 @@
 const express = require("express");
+const morgan = require("morgan");
+const cors = require("cors");
 const app = express();
 
 const PORT = process.env.PORT || 5000;
@@ -6,6 +8,9 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log("Server Is Runing on Port: " + PORT);
 });
+
+app.use(morgan("dev"));
+app.use(cors());
 
 const cart = [
   {
